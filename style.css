@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  overflow: hidden;
+}
+.gamecontainer {
+  width: 70%;
+  height: 50%;
+  background: rgba(0, 0, 0, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+.man {
+  width: 50px;
+  height: 50px;
+  background-image: url("assets/man.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+}
+.manjump {
+  animation: jumpanimation 0.5s linear;
+}
+@keyframes jumpanimation {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 100px;
+    transform: rotate(180deg);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(360deg);
+  }
+}
+.enemy {
+  width: 40px;
+  height: 40px;
+  background-image: url("assets/enemy1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 60%;
+}
+.levelUpenemy {
+  width: 40px;
+  height: 40px;
+  background-image: url("assets/enemy2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 70%;
+  animation: blink 0.7s infinite;
+  display: none;
+}
+.enemymove {
+  animation: enemymove 4s linear infinite;
+}
+@keyframes enemymove {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -50px;
+  }
+}
+.gameover {
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  visibility: hidden;
+  color: white;
+  animation: blink 0.3s infinite;
+}
+
+.score {
+  position: absolute;
+  font-size: 10px;
+  top: 5vh;
+  left: 20px;
+  padding: 5px;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  display: none;
+}
+#lscore {
+  position: absolute;
+  font-size: 10px;
+  top: 5vh;
+  right: 20px;
+  padding: 5px;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  display: none;
+}
+.Creator {
+  position: absolute;
+  font-size: 8px;
+  top: -0px;
+  left: 5px;
+  padding: 5px;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  animation: blink 4s infinite;
+}
+.buttons {
+  display: none;
+}
+.button {
+  position: absolute;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  outline: none;
+  border: none;
+  display: none;
+}
+.startBtn {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  outline: none;
+  border: none;
+}
+.levelUp {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("assets/levelup.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  animation: blink 0.3s infinite;
+  display: none;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.highScoreImg {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("assets/congrats.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 8vh;
+  height: 8vh;
+  animation: blink 1s infinite;
+  /* display: none; */
+}
+.highScoreTxt {
+  position: absolute;
+  top: 17vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: yellowgreen;
+  /* animation: blink 1s infinite; */
+  display: none;
+}
+.hidden {
+  visibility: hidden;
+}
+/* media query for Responsive  */
+@media only screen and (max-width: 479px) {
+  .gamecontainer {
+    bottom: 60px;
+  }
+  .buttons {
+    display: block;
+    width: auto;
+    height: 50px;
+    position: absolute;
+    bottom: 12vh;
+  }
+  .btn {
+    width: 40px;
+    height: 40px;
+    margin: 0 4px;
+    padding: 5px;
+    border: none;
+    border-radius: 100%;
+    outline: none;
+  }
+  .up {
+    position: relative;
+    right: 5vw;
+    width: 65px;
+    height: 65px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+  }
+  .right {
+    position: relative;
+    left: 5vw;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(90deg);
+  }
+  .left {
+    position: relative;
+    left: 5vw;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(-90deg);
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .gamecontainer {
+    bottom: 60px;
+  }
+  .buttons {
+    display: block;
+    width: auto;
+    height: 50px;
+    position: absolute;
+    bottom: 11vh;
+  }
+  .btn {
+    width: 40px;
+    height: 40px;
+    margin: 0 4px;
+    padding: 5px;
+    border: none;
+    border-radius: 100%;
+    outline: none;
+  }
+  .up {
+    position: relative;
+    right: 5vw;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+  }
+  .right {
+    position: relative;
+    left: 5vw;
+    width: 55px;
+    height: 55px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(90deg);
+  }
+  .left {
+    position: relative;
+    left: 5vw;
+    width: 55px;
+    height: 55px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(-90deg);
+  }
+  .gameover {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 480px) {
+  .gamecontainer {
+    bottom: 15vh;
+  }
+  .buttons {
+    display: block;
+    width: auto;
+    height: 50px;
+    position: absolute;
+    bottom: 6vh;
+  }
+  .btn {
+    width: 40px;
+    height: 40px;
+    margin: 0 4px;
+    padding: 5px;
+    border: none;
+    border-radius: 100%;
+    outline: none;
+  }
+  .up {
+    position: relative;
+    right: 12vw;
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+  }
+  .right {
+    position: relative;
+    left: 13vw;
+    width: 65px;
+    height: 65px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(90deg);
+  }
+  .left {
+    position: relative;
+    left: 12vw;
+    width: 65px;
+    height: 65px;
+    border: 2px solid rgb(255, 255, 255);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(-90deg);
+  }
+  /* .move {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 45px;
+  } */
+  /* .up {
+    position: relative;
+    right: 40vw;
+    top: 42vh;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(255, 255, 255);
+    transform: translateY(-50%);
+    background-image: url("assets/a2.png");
+    background-size: cover;
+  }
+  .right {
+    position: relative;
+    top: 40vh;
+    width: 55px;
+    height: 55px;
+    border: 2px solid rgb(255, 255, 255);
+    transform: translateY(-50%);
+    left: 41vw;
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(90deg);
+  }
+  .left {
+    position: relative;
+    top: 35vh;
+    width: 55px;
+    height: 55px;
+    border: 2px solid rgb(255, 255, 255);
+    transform: translateY(-50%);
+    left: 41vw;
+    background-image: url("assets/a2.png");
+    background-size: cover;
+    transform: rotate(-90deg);
+  } */
+}
